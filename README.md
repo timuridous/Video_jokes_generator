@@ -1,115 +1,106 @@
-# 🎬 Joke Video Generator
+# 🎬 Generator Filmów z Dowcipami
 
-Програма автоматично генерує відеоролики з анекдотами:
-рандомна музика + рандомний фон + текст анекдоту = готове відео mp4.
+Program automatycznie generuje filmiki z dowcipami:
+losowa muzyka + losowe tło + tekst dowcipu = gotowy film mp4.
 
 ---
 
-## 📁 Структура папок
+## 📁 Struktura folderów
 
-```
 joke_video_generator/
 │
-├── generate.py          ← головний скрипт
-├── jokes.txt            ← анекдоти (розділяються порожнім рядком)
+├── generate.py          ← główny skrypt
+├── jokes.txt            ← dowcipy (oddzielane pustą linią)
 │
-├── music/               ← сюди кладемо аудіофайли
+├── music/               ← tutaj wrzucamy pliki audio
 │   ├── track1.mp3
 │   ├── chill_beat.wav
 │   └── ...
 │
-├── backgrounds/         ← сюди кладемо фони
+├── backgrounds/         ← tutaj wrzucamy tła
 │   ├── sunset.jpg
 │   ├── city.png
-│   ├── nature.mp4       ← відеофони теж підтримуються!
+│   ├── nature.mp4       ← obsługiwane są również tła wideo!
 │   └── ...
 │
-└── output/              ← готові відео зберігаються тут (створюється автоматично)
+└── output/              ← tutaj zapisywane są gotowe filmy (tworzy się automatycznie)
     └── joke_1234.mp4
-```
 
 ---
 
-## ⚙️ Встановлення
+## ⚙️ Instalacja
 
 ### 1. Python 3.10+
-Скрипт використовує лише стандартну бібліотеку Python — нічого встановлювати!
+Skrypt używa wyłącznie standardowej biblioteki Python — nic nie trzeba instalować.
 
-### 2. ffmpeg (обов'язково)
+### 2. ffmpeg (wymagany)
 
-**Windows:**
-- Завантажити з https://ffmpeg.org/download.html
-- Розпакувати і додати папку `bin` до PATH
+Windows:
+- Pobierz z https://ffmpeg.org/download.html
+- Rozpakuj i dodaj folder `bin` do PATH
 
-**macOS:**
-```bash
+macOS:
 brew install ffmpeg
-```
 
-**Ubuntu/Debian:**
-```bash
+Ubuntu/Debian:
 sudo apt install ffmpeg
-```
 
 ---
 
-## 🚀 Запуск
+## 🚀 Uruchamianie
 
-```bash
-# Генерує відео з рандомною назвою
+# Generuje film z losową nazwą
 python generate.py
 
-# Генерує відео з конкретною назвою
+# Generuje film z konkretną nazwą
 python generate.py my_video.mp4
-```
 
-Готове відео буде у папці `output/`.
-
----
-
-## ✏️ Формат jokes.txt
-
-Кожен анекдот — це блок тексту. Анекдоти **розділяються порожнім рядком**:
-
-```
-Перший анекдот рядок 1
-Перший анекдот рядок 2
-
-Другий анекдот рядок 1
-Другий анекдот рядок 2
-
-Третій анекдот...
-```
+Gotowy film pojawi się w folderze `output/`.
 
 ---
 
-## ⚙️ Налаштування (у generate.py)
+## ✏️ Format jokes.txt
 
-| Параметр | За замовчуванням | Опис |
+Każdy dowcip to osobny blok tekstu.
+Dowcipy są oddzielane pustą linią:
+
+Pierwszy dowcip linia 1
+Pierwszy dowcip linia 2
+
+Drugi dowcip linia 1
+Drugi dowcip linia 2
+
+Trzeci dowcip...
+
+---
+
+## ⚙️ Ustawienia (w generate.py)
+
+| Parametr | Domyślnie | Opis |
 |---|---|---|
-| `VIDEO_WIDTH` | 1080 | Ширина відео |
-| `VIDEO_HEIGHT` | 1920 | Висота відео (вертикальний формат) |
-| `VIDEO_DURATION` | 15 | Тривалість (сек), якщо фон — зображення |
-| `FONT_SIZE` | 60 | Розмір шрифту |
-| `MAX_CHARS_LINE` | 30 | Символів на рядок |
-| `BOX_COLOR` | `black@0.55` | Фон під текстом |
-| `FADE_DURATION` | 1.0 | Тривалість fade-out музики |
+| VIDEO_WIDTH | 1080 | Szerokość filmu |
+| VIDEO_HEIGHT | 1920 | Wysokość filmu (format pionowy) |
+| VIDEO_DURATION | 15 | Czas trwania (sek), jeśli tło jest obrazem |
+| FONT_SIZE | 60 | Rozmiar czcionki |
+| MAX_CHARS_LINE | 30 | Maksymalna liczba znaków w linii |
+| BOX_COLOR | black@0.55 | Tło pod tekstem |
+| FADE_DURATION | 1.0 | Czas fade-out muzyki |
 
 ---
 
-## 🎞️ Підтримувані формати
+## 🎞️ Obsługiwane formaty
 
-| Тип | Формати |
+| Typ | Formaty |
 |---|---|
-| Фони-зображення | jpg, jpeg, png, webp, bmp |
-| Фони-відео | mp4, mov, avi, mkv, webm |
-| Музика | mp3, wav, ogg, aac, flac, m4a |
+| Tła-obrazki | jpg, jpeg, png, webp, bmp |
+| Tła-wideo | mp4, mov, avi, mkv, webm |
+| Muzyka | mp3, wav, ogg, aac, flac, m4a |
 
 ---
 
-## 💡 Поради
+## 💡 Wskazówki
 
-- Вертикальний формат 1080×1920 — ідеально для Instagram Reels, TikTok, YouTube Shorts
-- Якщо музика коротша за відео — вона обрізається автоматично
-- Текст анекдоту з'являється плавно (fade-in)
-- Всі анекдоти вибираються рандомно кожного разу
+- Format pionowy 1080×1920 idealnie nadaje się do Instagram Reels, TikTok oraz YouTube Shorts
+- Jeśli muzyka jest krótsza niż film — zostanie automatycznie przycięta
+- Tekst dowcipu pojawia się płynnie (fade-in)
+- Dowcipy są wybierane losowo przy każdym uruchomieniu programu
