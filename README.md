@@ -1,43 +1,45 @@
-# 🎬 Generator Filmów z Dowcipami
+# 🎬 Joke Video Generator
 
-Program automatycznie generuje filmiki z dowcipami:
-losowa muzyka + losowe tło + tekst dowcipu = gotowy film mp4.
+The program automatically generates joke videos:
+random music + random background + joke text = ready mp4 video.
 
 ---
 
-## 📁 Struktura folderów
+## 📁 Folder Structure
 
 joke_video_generator/
 │
-├── generate.py          ← główny skrypt
-├── jokes.txt            ← dowcipy (oddzielane pustą linią)
+├── generate.py          ← main script
+├── jokes.txt            ← jokes (separated by an empty line)
 │
-├── music/               ← tutaj wrzucamy pliki audio
+├── music/               ← put audio files here
 │   ├── track1.mp3
 │   ├── chill_beat.wav
 │   └── ...
 │
-├── backgrounds/         ← tutaj wrzucamy tła
+├── backgrounds/         ← put backgrounds here
 │   ├── sunset.jpg
 │   ├── city.png
-│   ├── nature.mp4       ← obsługiwane są również tła wideo!
+│   ├── nature.mp4       ← video backgrounds are also supported!
 │   └── ...
 │
-└── output/              ← tutaj zapisywane są gotowe filmy (tworzy się automatycznie)
-    └── joke_1234.mp4
+└── output/              ← generated videos are saved here (created automatically)
+└── joke_1234.mp4
 
 ---
 
-## ⚙️ Instalacja
+## ⚙️ Installation
 
 ### 1. Python 3.10+
-Skrypt używa wyłącznie standardowej biblioteki Python — nic nie trzeba instalować.
 
-### 2. ffmpeg (wymagany)
+The script uses only the standard Python library — nothing needs to be installed.
+
+### 2. ffmpeg (required)
 
 Windows:
-- Pobierz z https://ffmpeg.org/download.html
-- Rozpakuj i dodaj folder `bin` do PATH
+
+* Download from https://ffmpeg.org/download.html
+* Extract and add the `bin` folder to PATH
 
 macOS:
 brew install ffmpeg
@@ -47,60 +49,62 @@ sudo apt install ffmpeg
 
 ---
 
-## 🚀 Uruchamianie
+## 🚀 Running
 
-# Generuje film z losową nazwą
+# Generates a video with a random name
+
 python generate.py
 
-# Generuje film z konkretną nazwą
+# Generates a video with a specific name
+
 python generate.py my_video.mp4
 
-Gotowy film pojawi się w folderze `output/`.
+The finished video will appear in the `output/` folder.
 
 ---
 
-## ✏️ Format jokes.txt
+## ✏️ jokes.txt Format
 
-Każdy dowcip to osobny blok tekstu.
-Dowcipy są oddzielane pustą linią:
+Each joke is a separate block of text.
+Jokes are separated by an empty line:
 
-Pierwszy dowcip linia 1
-Pierwszy dowcip linia 2
+First joke line 1
+First joke line 2
 
-Drugi dowcip linia 1
-Drugi dowcip linia 2
+Second joke line 1
+Second joke line 2
 
-Trzeci dowcip...
-
----
-
-## ⚙️ Ustawienia (w generate.py)
-
-| Parametr | Domyślnie | Opis |
-|---|---|---|
-| VIDEO_WIDTH | 1080 | Szerokość filmu |
-| VIDEO_HEIGHT | 1920 | Wysokość filmu (format pionowy) |
-| VIDEO_DURATION | 15 | Czas trwania (sek), jeśli tło jest obrazem |
-| FONT_SIZE | 60 | Rozmiar czcionki |
-| MAX_CHARS_LINE | 30 | Maksymalna liczba znaków w linii |
-| BOX_COLOR | black@0.55 | Tło pod tekstem |
-| FADE_DURATION | 1.0 | Czas fade-out muzyki |
+Third joke...
 
 ---
 
-## 🎞️ Obsługiwane formaty
+## ⚙️ Settings (in generate.py)
 
-| Typ | Formaty |
-|---|---|
-| Tła-obrazki | jpg, jpeg, png, webp, bmp |
-| Tła-wideo | mp4, mov, avi, mkv, webm |
-| Muzyka | mp3, wav, ogg, aac, flac, m4a |
+| Parameter      | Default    | Description                                  |
+| -------------- | ---------- | -------------------------------------------- |
+| VIDEO_WIDTH    | 1080       | Video width                                  |
+| VIDEO_HEIGHT   | 1920       | Video height (vertical format)               |
+| VIDEO_DURATION | 15         | Duration (sec) if the background is an image |
+| FONT_SIZE      | 60         | Font size                                    |
+| MAX_CHARS_LINE | 30         | Maximum number of characters per line        |
+| BOX_COLOR      | black@0.55 | Background behind the text                   |
+| FADE_DURATION  | 1.0        | Music fade-out duration                      |
 
 ---
 
-## 💡 Wskazówki
+## 🎞️ Supported Formats
 
-- Format pionowy 1080×1920 idealnie nadaje się do Instagram Reels, TikTok oraz YouTube Shorts
-- Jeśli muzyka jest krótsza niż film — zostanie automatycznie przycięta
-- Tekst dowcipu pojawia się płynnie (fade-in)
-- Dowcipy są wybierane losowo przy każdym uruchomieniu programu
+| Type              | Formats                       |
+| ----------------- | ----------------------------- |
+| Image backgrounds | jpg, jpeg, png, webp, bmp     |
+| Video backgrounds | mp4, mov, avi, mkv, webm      |
+| Music             | mp3, wav, ogg, aac, flac, m4a |
+
+---
+
+## 💡 Tips
+
+* The vertical 1080×1920 format is perfect for Instagram Reels, TikTok, and YouTube Shorts
+* If the music is shorter than the video — it will be automatically trimmed
+* The joke text appears smoothly (fade-in)
+* Jokes are randomly selected every time the program is launched
