@@ -5,27 +5,14 @@ random music + random background + joke text = ready mp4 video.
 
 ---
 
-## 📁 Folder Structure
-
+```text
 joke_video_generator/
-│
-├── generate.py          ← main script
-├── jokes.txt            ← jokes (separated by an empty line)
-│
-├── music/               ← put audio files here
-│   ├── track1.mp3
-│   ├── chill_beat.wav
-│   └── ...
-│
-├── backgrounds/         ← put backgrounds here
-│   ├── sunset.jpg
-│   ├── city.png
-│   ├── nature.mp4       ← video backgrounds are also supported!
-│   └── ...
-│
-└── output/              ← generated videos are saved here (created automatically)
-└── joke_1234.mp4
-
+├── generate.py
+├── jokes.txt
+├── music/
+├── backgrounds/
+└── output/
+```
 ---
 
 ## ⚙️ Installation
